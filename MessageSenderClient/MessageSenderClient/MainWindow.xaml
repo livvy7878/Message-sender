@@ -1,0 +1,72 @@
+﻿<Window x:Class="MessageSenderClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500" DataContext="{StaticResource MainViewModel}" Loaded="MainWindow_OnLoaded">
+	<TabControl>
+		<TabItem Header="Messenger">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition />
+					<RowDefinition Height="100"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="90"/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="90"/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Receiver login : "/>
+					<ComboBox Grid.Column="1" ItemsSource="{Binding RegisteredUsers}" SelectedItem="{Binding ReceiverName}"/>
+					<Button Grid.Column="2" Margin="3" Content="Update" Click="ButtonUpdateUsersClickEventHandler"/>
+				</Grid>
+				<ListView Grid.Row="1" ItemsSource="{Binding Messages}">
+					<ListView.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel/>
+						</ItemsPanelTemplate>
+					</ListView.ItemsPanel>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<Grid >
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition/>
+									<ColumnDefinition/>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<Label Grid.Row="0" Content="{Binding ReceiverLogin}"/>
+								<Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="{Binding Text}"/>
+								<Label Grid.Column="1" Grid.Row="0" Content="{Binding SendingTime}"/>
+							</Grid>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+				<TextBox Grid.Row="2" Text="{Binding WrittenMessage, Mode=OneWayToSource ,UpdateSourceTrigger=PropertyChanged }"/>
+				<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Content="Update" Width="100" Margin="3" Click="ButtonUpdateClickEventHandler"/>
+					<Button Content="Send" Width="100" Margin="3" Click="ButtonSendClickEventHandler"/>
+				</StackPanel>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Settings">
+			<StackPanel>
+				<StackPanel >
+					<Label Content="Login"/>
+					<TextBox Text="{Binding LoggedInUser.Login}"/>
+				</StackPanel>
+				<!--<StackPanel >
+					<Label Content="Password"/>
+					<TextBox Text="{Binding LoggedInUser.Password}"/>
+				</StackPanel>-->
+				<Button Content="Register" Margin="10" Click="ButtonRegisterClickEventHandler"/>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+</Window>

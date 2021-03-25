@@ -1,0 +1,6 @@
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\bin\Debug\MessageSenderMessageModel.dll
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\bin\Debug\MessageSenderMessageModel.pdb
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\obj\Debug\MessageSenderMessageModel.csprojAssemblyReference.cache
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\obj\Debug\MessageSenderMessageModel.csproj.CoreCompileInputs.cache
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\obj\Debug\MessageSenderMessageModel.dll
+E:\repository\MessageSenderMessageModel\MessageSenderMessageModel\obj\Debug\MessageSenderMessageModel.pdb
